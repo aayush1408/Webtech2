@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-//Get the forms
+//Get the form
 router.get('/Form',(req,res,next)=>{
     res.render('Form');
 });
