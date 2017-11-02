@@ -7,6 +7,9 @@ router.get('/', (req, res, next)=> {
 });
 //Get the form
 router.get('/Form',(req,res,next)=>{
-    res.render('Form',{errors:false});
+    res.render('Form',{errors:false,user:false});
 });
+router.get('/login',(req,res,next)=>{
+    res.render('Login');
+})
 module.exports = router;
