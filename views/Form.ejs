@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration form</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center;">Register here!!</h1>
+    <div class="studentForm" style="float: left">
+    <h1>Student Details</h1>
+    <form action="/add/student" method="post">
+        <label>Name</label>
+        <input type="text" name="student_name"><br><br>
+        <label>Email</label>
+        <input type="email" name="student_email"><br><br>
+        <label>Branch</label>
+        <select name="branch">
+            <option selected="selected">Branch</option>
+            <option>CS</option>
+            <option>EC</option>
+            <option>IT</option>
+            <option>Mechanical</option>
+        </select><br><br>
+        <label>Year</label>
+        <select  name="year">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select><br><br>
+        <label>Username</label>
+        <input type="text" name="student_username"><br><br>
+        <label>Password</label>
+        <input type="password" name="password"><br><br>
+        <label>Re-enter Password</label>
+        <input type="password" name="rpassword"><br><br>
+        <input type="submit" name="">    
+    </form>
+</div>
+    <div class="teacherForm" style="float: right">
+        <h1>Teacher form</h1>
+        <form action="/add/teacher" method="post">
+            <label>Name:</label>
+            <input type="text" name="teacher_name"><br><br>
+            <label>Email</label>
+            <input type="email" name="teacher_email"><br><br>
+            <label>Department</label>
+            <select name="dept">
+                <option selected="selected">Dept</option>
+                <option>CS</option>
+                <option>EC</option>
+                <option>IT</option>
+                <option>Mechanical</option>
+            </select><br><br>
+            <label>Username</label>
+            <input type="text" name="teacher_username"><br><br>
+            <label>Password</label>
+            <input type="password" name="teacher_password"><br><br>
+            <label>Re-Password</label>
+            <input type="password" name="teacher_rpassword"><br><br>
+            <input type="submit" name="">
+        </form>
+    </div>
+</div>
+</body>
+</html>
