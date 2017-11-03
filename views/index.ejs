@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Homepage</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+ <h1>Welcome to homepage</h1>
+     <% if (!user) { %>
+  <p>Welcome! Please <a href="/login">log in</a>.</p>
+<% } else { %>
+  <p>Hello, <%= user[0].username %>. <a href="/internships">Look at the internships.</p>
+<% } %>
+    
   </body>
 </html>
