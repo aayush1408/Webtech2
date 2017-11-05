@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Student = require('../models/student.js');
+const Intern =require('../models/intern.js');
 router.post('/student',(req,res,next)=>{
     var name = req.body.name;
     var email = req.body.email;
@@ -52,8 +53,19 @@ router.post('/student',(req,res,next)=>{
 }
 });
 
-/*router.post('/add/internships',(req,res)=>{
-
-})*/
+router.post('/internships',(req,res)=>{
+    var about = req.body.about;
+    var branch = req.body.branch;
+    var newIntern = new Intern({
+        about:about,
+        branch:branch
+    });
+    newIntern.save((err)=>{
+        if(err) throw err;
+        else{
+            console.log('Saved');
+        }
+    });
+});
 
 module.exports = router;

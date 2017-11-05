@@ -24,5 +24,10 @@ router.get('/internships',
     res.render('internships', { user: req.user });
   });
 
+//INternship form
+router.get('/internships/form',(req,res)=>{
+  res.render('add');
+})
+
 
 module.exports = router;
