@@ -13,14 +13,8 @@ passport.use(new Strategy(                           //LocalStrategy
         console.log('No user found');
         return cb(null, false); }
       if (user.password != password) { 
-        // console.log(user);
-        // console.log(password);
-        // console.log(user.password);
-        // console.log('Password is wrong');
         return cb(null, false); 
     }
-      // console.log(user);
-
       return cb(null, user);
     });
   }));

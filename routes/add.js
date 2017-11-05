@@ -51,4 +51,5 @@ router.post('/student',(req,res,next)=>{
     });
 }
 });
+
 module.exports = router;

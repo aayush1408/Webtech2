@@ -10,13 +10,19 @@ const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
+var app = express();
+
+
+
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 var add = require('./routes/add');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
+// var teacherlogin = require('./routes/teacherLogin.js');
 
-var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,7 +35,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 //Sessions
 app.use(session({
@@ -67,6 +72,7 @@ app.use('/users', users);
 app.use('/add',add);
 app.use('/login', login);
 app.use('/logout', logout);
+// app.use('/teacherlogin',teacherlogin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

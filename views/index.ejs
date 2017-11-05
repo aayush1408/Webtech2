@@ -6,11 +6,11 @@
   </head>
   <body>
  <h1>Welcome to homepage</h1>
-     <% if (!user) { %>
+ <% if (!user) { %>
   <p>Welcome! Please <a href="/login">log in</a>.</p>
 <% } else { %>
-  <p>Hello, <%= user[0].username %>. <a href="/internships">Look at the internships.</p>
+  <p>Hello, <%= user.username %>. <a href="/internships">Show available internships.</p>
 <% } %>
     
   </body>
-</html>
+</htm
