@@ -52,4 +52,8 @@ router.post('/student',(req,res,next)=>{
 }
 });
 
+/*router.post('/add/internships',(req,res)=>{
+
+})*/
+
 module.exports = router;
