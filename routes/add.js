@@ -58,9 +58,11 @@ router.post('/user',(req,res,next)=>{
 router.post('/internships',(req,res)=>{
     var about = req.body.about;
     var branch = req.body.branch;
+    var calender = req.body.calender;
     var newIntern = new Intern({
         about:about,
-        branch:branch
+        branch:branch,
+        calender:da
     });
     newIntern.save((err)=>{
         if(err) throw err;
