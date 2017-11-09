@@ -4,7 +4,7 @@ const Intern = require('../models/intern.js');
 /* GET home page. */
 router.get('/', (req, res, next)=> {
     console.log(req.user);
-  res.render('index',{user : req.user });
+  res.render('index',{user : req.user ,data:false});
 });
 
 //Get the form
@@ -30,7 +30,7 @@ router.get('/internships',
   });
 
 //INternship form
-router.get('/internships/form',(req,res)=>{
+router.get('/internships/form',require('connect-ensure-login').ensureLoggedIn(),(req,res)=>{
   res.render('add');
 })
 

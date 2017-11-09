@@ -7,10 +7,12 @@
   <body>
  <h1>Welcome to homepage</h1>
  <% if (!user) { %>
+  <p><a href="/form">Register</a></p>
   <p>Welcome! Please <a href="/login">log in</a>.</p>
 <% } else { %>
   <p>Hello, <%= user.username %>. <a href="/internships">Show available internships.</p>
 <% } %>
+
     
   </body>
 </htm

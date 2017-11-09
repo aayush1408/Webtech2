@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const Student = require('../models/student.js');
+const User = require('../models/user.js');
 const Intern =require('../models/intern.js');
-router.post('/student',(req,res,next)=>{
+router.post('/user',(req,res,next)=>{
     var name = req.body.name;
     var email = req.body.email;
     var branch = req.body.branch;
+    var category = req.body.category;
     var year = req.body.year;
     var username = req.body.username;
     var password = req.body.password;
@@ -27,21 +28,22 @@ router.post('/student',(req,res,next)=>{
     }
     
     else{
-        Student.find({username:username}).exec((err,result)=>{
+        User.find({username:username}).exec((err,result)=>{
             if(result.length > 0){
                 console.log(result);
                 res.render('Form',{user:'User already exists',errors:false});
             }
         else{
-            var newStudent = new Student({
+            var newUser = new User({
             name:name,
             email:email,
             branch:branch,
+            category:category,
             year:year,
             username:username,
             password:password
         });
-        newStudent.save((err)=>{
+        newUser.save((err)=>{
             if(err) throw err;
             else{
                 console.log('saved');
@@ -64,6 +66,7 @@ router.post('/internships',(req,res)=>{
         if(err) throw err;
         else{
             console.log('Saved');
+            res.render('add',{user:false})
         }
     });
 });

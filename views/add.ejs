@@ -6,6 +6,7 @@
 </head>
 <body>
  <div>
+    <p>Welcome <%= user.name %></p>
     <h1>Add the internships</h1>
     <form action="/add/internships" method="post">
         <label>About the internships</label>
@@ -20,6 +21,7 @@
         </select><br><br>
         <input type="submit" name="">
     </form>
+    <a href="/logout">Log out</a>
  </div>
 </body>
 </html>

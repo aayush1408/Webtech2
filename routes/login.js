@@ -2,12 +2,10 @@ const passport = require('passport');
 const Strategy = require('passport-local').Strategy;
 const express = require('express');
 const router = express.Router();
-const Student = require('../models/student.js');
-const Teacher = require('../models/teacher.js');
-
+const User = require('../models/user.js');
 passport.use(new Strategy(                           //LocalStrategy
   function(username, password, cb) {
-    Student.findOne({username:username}, function(err, user) {
+    User.findOne({username:username}, function(err, user) {
       if (err) { return cb(err); }
       if (!user) {
         console.log('No user found');
@@ -28,22 +26,25 @@ passport.serializeUser(function(user, cb) {
 });
 
 passport.deserializeUser(function(id, cb) {
-  Student.find({_id:id}, function (err, user) {
+  User.findOne({_id:id}, function (err, user) {
     if (err) { return cb(err); }
     cb(null, user);
+    console.log(user);  
   });
 });
 
 
-router.post('/student',
+router.post('/',
             passport.authenticate('local', { failureRedirect: '/login' }),
             (req, res)=> {
-            res.redirect('/');
+              if(req.user.category === 'Student'){
+              res.redirect('/');
+            }
+            else{
+              res.render('add',{user : req.user });
+            }
+
 });
-router.post('/teacher',
-            passport.authenticate('local', { failureRedirect: '/login' }),
-            (req, res)=> {
-            res.redirect('/');
-});
+
 
 module.exports = router;
