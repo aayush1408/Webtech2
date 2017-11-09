@@ -3,7 +3,7 @@ const Strategy = require('passport-local').Strategy;
 const express = require('express');
 const router = express.Router();
 const Student = require('../models/student.js');
-
+const Teacher = require('../models/teacher.js');
 
 passport.use(new Strategy(                           //LocalStrategy
   function(username, password, cb) {
@@ -17,7 +17,12 @@ passport.use(new Strategy(                           //LocalStrategy
     }
       return cb(null, user);
     });
-  }));
+
+    
+}));
+
+
+
 passport.serializeUser(function(user, cb) {
   cb(null, user.id);
 });
@@ -31,6 +36,11 @@ passport.deserializeUser(function(id, cb) {
 
 
 router.post('/student',
+            passport.authenticate('local', { failureRedirect: '/login' }),
+            (req, res)=> {
+            res.redirect('/');
+});
+router.post('/teacher',
             passport.authenticate('local', { failureRedirect: '/login' }),
             (req, res)=> {
             res.redirect('/');

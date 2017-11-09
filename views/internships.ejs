@@ -6,6 +6,11 @@
 <body>
 <h2>Interships</h2>
 <p> Welocme,<%= user[0].name %></p>
+<% for(var i=0;i< data.length;i++){ %>
+<p><%= data[i].about %></p>
+<p><%= data[i].branch %></p>
+<p><%= data[i].date.toString(); %></p>
+<% } %>
 <a href="/logout/student">Log out</a>
 </body>
 </html>

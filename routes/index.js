@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const Intern = require('../models/intern.js');
 /* GET home page. */
 router.get('/', (req, res, next)=> {
     console.log(req.user);
@@ -20,8 +20,13 @@ router.get('/internships',
   function(req, res){
     console.log('internships');
     console.log(req.user);
-
-    res.render('internships', { user: req.user });
+    Intern.find().exec((err,data)=>{
+      if (err) throw err;
+      else{
+          res.render('internships', { user: req.user ,data:data});    
+      }
+    })
+    
   });
 
 //INternship form
