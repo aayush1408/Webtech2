@@ -62,7 +62,7 @@ router.post('/internships',(req,res)=>{
     var newIntern = new Intern({
         about:about,
         branch:branch,
-        calender:da
+        calender:calender
     });
     newIntern.save((err)=>{
         if(err) throw err;

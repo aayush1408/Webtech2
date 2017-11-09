@@ -5,12 +5,12 @@
 </head>
 <body>
 <h2>Interships</h2>
-<p> Welocme,<%= user.name %></p>
+<p> Welocme,<%= user.name %></p><br>
 <% if(data) %>
 <% for(var i=0;i< data.length;i++){ %>
-<p><%= data[i].about %></p>
-<p><%= data[i].branch %></p>
-<p><%= data[i].date.toString(); %></p>
+<p>About the internship:<%= data[i].about %></p>
+<p>Branch Name:<%= data[i].branch %></p>
+<p>Last date to apply:<%= data[i].calender %></p><br><br>
 <% } %>
 <a href="/logout/">Log out</a>
 </body>
